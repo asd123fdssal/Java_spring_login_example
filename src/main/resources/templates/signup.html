@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Spring Security 회원가입 예제 </title>
+</head>
+<body>
+<form th:action="@{/signup}" method="post" th:object="${MemberRegisterDto}" >
+    <div><label> 아이디 : <input th:field="*{username}" type="text"/> </label></div>
+    <div><label> 비밀번호: <input th:field="*{password}" type="password" /> </label></div>
+    <div><input type="submit" value="회원가입"/></div>
+    <div><span onclick="location.href='/login'">로그인</span></div>
+</form>
+</body>
+</html>
