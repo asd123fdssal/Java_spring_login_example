@@ -1,7 +1,6 @@
 package com.arsud.Java_spring_login_example.controller;
 
 import com.arsud.Java_spring_login_example.dto.MemberRegisterDto;
-import com.arsud.Java_spring_login_example.exception.AlreadyRegisteredUserException;
 import com.arsud.Java_spring_login_example.service.MemberService;
 import com.arsud.Java_spring_login_example.validator.RegisterValidator;
 import lombok.RequiredArgsConstructor;
@@ -47,12 +46,7 @@ public class SignupController {
             return "/signup";
         }
 
-        try {
-            memberService.signup(memberDto.getUsername(), memberDto.getPassword());
-        } catch (AlreadyRegisteredUserException e){
-            bindingResult.rejectValue("username", "duplicate_user", "이미 존재하는 ID 입니다.");
-            return "/signup";
-        }
+        memberService.signup(memberDto.getUsername(), memberDto.getPassword());
 
         return "login";
     }
