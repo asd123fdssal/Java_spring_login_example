@@ -28,7 +28,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.rememberMe();
 
         http.authorizeRequests()
-                .antMatchers("/","/signup").permitAll()
+                .antMatchers("/","/signup", "/index").permitAll()
                 .anyRequest().authenticated();
 
         http.formLogin()
